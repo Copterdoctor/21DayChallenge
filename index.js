@@ -58,6 +58,7 @@ function lightColumn(column) {
   return columnContents;
 }
 
+// Returns content of cell and false if cell doesn't exist
 function lightCell(location) {
   var row = parseInt(location.slice(1));
   var columnIndex = convertColumn(location);
@@ -101,6 +102,7 @@ function allCurrents() {
   return currents;
 }
 
+// GRID[0] is required to determin how many columns the GRID has
 function allShips() {
   let ships = [];
   for (let i = 0; i < GRID.length; i++) {
@@ -125,6 +127,7 @@ function firstCurrent() {
   return currents[0];
 }
 
+// Furthest west and east boats
 function shipReport() {
   let result = [];
   const ships = allShips().sort();
@@ -133,7 +136,22 @@ function shipReport() {
   return result;
 }
 
-shipReport();
+function howDangerous(location) {
+  const cell = lightCell(location);
+  switch (cell) {
+    case false:
+      return 0;
+      
+    case '':
+      return 0;
+
+    case '~':
+      return 50;
+
+    case '^':
+      return 100;
+  }
+}
 
 module.exports = {
   countRows,
@@ -154,4 +172,5 @@ module.exports = {
   firstRock,
   firstCurrent,
   shipReport,
+  howDangerous,
 }

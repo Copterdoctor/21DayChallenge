@@ -129,5 +129,22 @@ describe('21dayCodingChallenge', () => {
     })
   })
 
+  describe('howDangerous', () => {
+    it('Should return 0 for cell doesnt exist', () => {
+      assert.equal(app.howDangerous('Z1'), 0)
+    })
+    
+    it('Should return 0 for no danger', () => {
+      assert.equal(app.howDangerous('A1'), 0)
+    })
 
+    it('Shoud return how dangerous a cell is. Currents will return 50.', () => {
+      assert.equal(app.howDangerous('E2'), 50)
+    })
+
+    it('Should return how dangerous a cell is. Rocks will return 100', () => {
+      assert.equal(app.howDangerous('E3'), 100)
+    })
+  })
+  
 })
