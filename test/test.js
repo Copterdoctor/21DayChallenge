@@ -146,5 +146,12 @@ describe('21dayCodingChallenge', () => {
       assert.equal(app.howDangerous('E3'), 100)
     })
   })
+
+  describe('percentageReport', () => {
+    it('Should return an array [%rocks,%currents]', () => {
+      assert.deepEqual(app.percentageReport(), [9.00, 7.00])
+    })
+  })
+  
   
 })

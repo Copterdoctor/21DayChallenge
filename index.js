@@ -141,7 +141,7 @@ function howDangerous(location) {
   switch (cell) {
     case false:
       return 0;
-      
+
     case '':
       return 0;
 
@@ -152,6 +152,17 @@ function howDangerous(location) {
       return 100;
   }
 }
+
+function percentageReport() {
+  const numOfCells = totalCells();
+  const perOfRocks = (allRocks().length / numOfCells) * 100;
+  const perOfCurrents = (allCurrents().length / numOfCells) * 100;
+  const result = [parseFloat(perOfRocks.toFixed(2)), parseFloat(perOfCurrents.toFixed(2))];
+
+  return result;
+}
+
+percentageReport();
 
 module.exports = {
   countRows,
@@ -173,4 +184,5 @@ module.exports = {
   firstCurrent,
   shipReport,
   howDangerous,
+  percentageReport,
 }
