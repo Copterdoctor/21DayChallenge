@@ -162,7 +162,29 @@ function percentageReport() {
   return result;
 }
 
-percentageReport();
+function safetyReport() {
+  let newGrid = [];
+  for (let i = 0; i < GRID.length; i++) {
+    newGrid.push([]);
+    for (let j = 0; j < GRID[0].length; j++) {
+      switch (GRID[i][j]) {
+        case '~':
+          newGrid[i].push("50");
+          break;
+        case '^':
+          newGrid[i].push("100");
+          break;
+        default:
+          newGrid[i].push("0");
+          break;
+      }
+    }
+  }
+  return newGrid;
+}
+
+console.log(safetyReport());
+
 
 module.exports = {
   countRows,
@@ -185,4 +207,5 @@ module.exports = {
   shipReport,
   howDangerous,
   percentageReport,
+  safetyReport,
 }

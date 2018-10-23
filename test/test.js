@@ -133,7 +133,7 @@ describe('21dayCodingChallenge', () => {
     it('Should return 0 for cell doesnt exist', () => {
       assert.equal(app.howDangerous('Z1'), 0)
     })
-    
+
     it('Should return 0 for no danger', () => {
       assert.equal(app.howDangerous('A1'), 0)
     })
@@ -152,6 +152,21 @@ describe('21dayCodingChallenge', () => {
       assert.deepEqual(app.percentageReport(), [9.00, 7.00])
     })
   })
-  
-  
+
+  describe('safetyReport', () => {
+    it('Should return the grid with the dangers replaces by % Dangerous.', () => {
+      assert.deepEqual(app.safetyReport(),
+        [['0', '0', '0', '100', '0', '0', '0', '0', '0', '0'],
+        ['0', '0', '0', '0', '50', '0', '0', '0', '0', '0'],
+        ['0', '0', '0', '0', '100', '100', '0', '0', '0', '0'],
+        ['0', '0', '0', '0', '100', '100', '0', '0', '0', '0'],
+        ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
+        ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
+        ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
+        ['0', '100', '50', '50', '0', '0', '0', '100', '0', '0'],
+        ['0', '100', '0', '50', '50', '0', '0', '0', '0', '0'],
+        ['0', '100', '0', '0', '50', '50', '0', '0', '0', '0']])
+    })
+  })
+
 })
