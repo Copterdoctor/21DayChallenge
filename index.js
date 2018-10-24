@@ -183,8 +183,15 @@ function safetyReport() {
   return newGrid;
 }
 
-console.log(safetyReport());
+function calcDistance(pointA, pointB) {
+  let x1 = convertColumn(pointA);
+  let x2 = convertColumn(pointB);
+  let y1 = parseInt(pointA.slice(1));
+  let y2 = parseInt(pointB.slice(1));
 
+  let distance = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+  return distance.toFixed(2);
+}
 
 module.exports = {
   countRows,
@@ -208,4 +215,5 @@ module.exports = {
   howDangerous,
   percentageReport,
   safetyReport,
+  calcDistance
 }

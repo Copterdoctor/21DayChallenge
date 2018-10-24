@@ -169,4 +169,17 @@ describe('21dayCodingChallenge', () => {
     })
   })
 
+  describe('calcDistance', () => {
+    it('Should return the distance between two points on same row', () => {
+      assert.equal(app.calcDistance('A1', 'J1'), 9)
+    })
+    it('Should return the distance between two points on same column', () => {
+      assert.equal(app.calcDistance('A1', 'A10'), 9)
+    })
+    it('Should return the distance between two points diagonal', () => {
+      assert.equal(app.calcDistance('A1', 'J10'), 12.73)
+    })
+  })
+  
+
 })
